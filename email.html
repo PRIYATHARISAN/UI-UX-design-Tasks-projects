@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Template</title>
+    <meta charset="UTF-8">
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            background:#f2f2f2;
+            font-family:Arial, sans-serif;
+        }
+
+        .container{
+            width:600px;
+            margin:20px auto;
+            background:white;
+        }
+
+        .header{
+g             background:#003366;
+            padding:40px;
+            text-align:center;
+        }
+
+        .header h1{
+            color:#000;
+        }
+
+        .header p{
+            color:#111;
+            line-height:1.6;
+        }
+
+        .btn{
+            display:inline-block;
+            background:#0057b7;
+            color:white;
+            padding:12px 25px;
+            text-decoration:none;
+            border-radius:5px;
+            margin-top:20px;
+        }
+
+        .features{
+            padding:40px;
+            text-align:center;
+        }
+
+        .features h2{
+            color:#000;
+            margin-bottom:30px;
+        }
+
+        .feature-box{
+            width:45%;
+            display:inline-block;
+            margin:10px;
+            vertical-align:top;
+            text-align:center;
+        }
+
+        .feature-icon{
+            width:60px;
+            height:60px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin:0 auto 15px;
+            border-radius:50%;
+            background:#0057b7;
+            color:#fff;
+            font-size:24px;
+        }
+
+        .feature-box h3{
+            color:#000;
+        }
+
+        .feature-box p{
+            color:#111;
+            font-size:14px;
+        }
+
+        .footer{
+            background:#002147;
+            text-align:center;
+            padding:20px;
+            font-size:13px;
+            color:#fff;
+        }
+
+        @media screen and (max-width:600px){
+
+            .container{
+                width:100%;
+            }
+
+            .feature-box{
+                width:100%;
+                display:block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Weekly Newsletter</h1>
+
+        <p>
+            Don’t miss our latest updates and amazing features.
+            Stay connected with us for more information.
+        </p>
+
+        <a href="#" class="btn">Go to your account</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+
+        <h2>Checkout our amazing features</h2>
+
+        <div class="feature-box">
+            <div class="feature-icon">⏱</div>
+            <h3>Timer</h3>
+            <p>
+                Easy-to-use timer feature for productivity and task management.
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <div class="feature-icon">📏</div>
+            <h3>Measure Tool</h3>
+            <p>
+                Measure dimensions quickly with our smart measuring tool.
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <div class="feature-icon">🎚️</div>
+            <h3>Slider</h3>
+            <p>
+                Attractive slider options for showcasing images and products.
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <div class="feature-icon">👤</div>
+            <h3>Users</h3>
+            <p>
+                Manage users efficiently with secure user controls.
+            </p>
+        </div>
+
+        <a href="#" class="btn">Go to your account</a>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>
+            You received this email because you signed up on our website.
+        </p>
+
+        <p>Unsubscribe</p>
+    </div>
+
+</div>
+
+</body>
+</html>
