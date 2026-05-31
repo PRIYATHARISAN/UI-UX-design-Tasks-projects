@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu</title>
+
+    <style>
+
+        body{
+            margin:0;
+            padding:40px;
+            font-family:Arial, sans-serif;
+            background:#333;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .container{
+            display:flex;
+            gap:40px;
+            align-items:flex-start;
+        }
+
+        .phone{
+            width:300px;
+            height:600px;
+            background:white;
+            border-radius:40px;
+            padding:15px;
+            box-shadow:0px 10px 40px rgba(0,0,0,0.5);
+            border:8px solid #000;
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+        }
+
+        .phone-notch{
+            height:25px;
+            background:#000;
+            border-radius:0 0 20px 20px;
+            margin:-15px -15px 10px -15px;
+        }
+
+        .menu-header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:10px 15px;
+            background:#d8ece8;
+            border-radius:10px;
+            margin-bottom:15px;
+        }
+
+        .menu-header h2{
+            margin:0;
+            color:#0f6159;
+            font-size:18px;
+        }
+
+        .menu-icon{
+            width:30px;
+            height:30px;
+            background:#0f6159;
+            border-radius:6px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            font-weight:bold;
+        }
+
+        .categories{
+            display:flex;
+            gap:8px;
+            padding:0 15px;
+            margin-bottom:15px;
+            font-size:12px;
+            overflow-x:auto;
+        }
+
+        .category{
+            background:#e8f0ee;
+            color:#0f6159;
+            padding:6px 12px;
+            border-radius:15px;
+            white-space:nowrap;
+            cursor:pointer;
+        }
+
+        .category.active{
+            background:#0f6159;
+            color:white;
+        }
+
+        .grid-items{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:12px;
+            padding:0 10px;
+            overflow-y:auto;
+            flex:1;
+        }
+
+        .grid-card{
+            background:#f5f5f5;
+            border-radius:12px;
+            overflow:hidden;
+            cursor:pointer;
+            box-shadow:0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .grid-card img{
+            width:100%;
+            height:100px;
+            object-fit:cover;
+        }
+
+        .grid-info{
+            padding:8px;
+            font-size:12px;
+        }
+
+        .grid-info h4{
+            margin:0 0 4px 0;
+            color:#0f6159;
+            font-size:12px;
+        }
+
+        .grid-price{
+            color:#0f6159;
+            font-weight:bold;
+            font-size:12px;
+        }
+
+        .phone-bottom{
+            display:flex;
+            justify-content:space-around;
+            padding:10px 0;
+            border-top:1px solid #eee;
+            font-size:12px;
+            color:#999;
+        }
+
+        .detail-panel{
+            width:300px;
+        }
+
+        .detail-image{
+            width:100%;
+            height:250px;
+            background:white;
+            border-radius:15px;
+            overflow:hidden;
+            margin-bottom:15px;
+        }
+
+        .detail-image img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .detail-header{
+            display:flex;
+            justify-content:space-between;
+            align-items:start;
+            margin-bottom:15px;
+        }
+
+        .detail-title{
+            color:white;
+            font-size:20px;
+            margin:0;
+        }
+
+        .detail-rating{
+            color:#d8ece8;
+            font-size:12px;
+        }
+
+        .detail-price{
+            color:#d8ece8;
+            font-size:24px;
+            font-weight:bold;
+            margin-bottom:15px;
+        }
+
+        .detail-desc{
+            color:#999;
+            font-size:13px;
+            line-height:1.5;
+            margin-bottom:20px;
+        }
+
+        .recently-viewed{
+            margin-bottom:20px;
+        }
+
+        .recently-title{
+            color:white;
+            font-size:14px;
+            margin-bottom:10px;
+        }
+
+        .viewed-items{
+            display:flex;
+            gap:10px;
+        }
+
+        .viewed-item{
+            width:70px;
+            height:70px;
+            background:white;
+            border-radius:8px;
+            overflow:hidden;
+        }
+
+        .viewed-item img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .add-btn{
+            width:100%;
+            background:#0f6159;
+            color:white;
+            border:none;
+            padding:15px;
+            border-radius:8px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        .add-btn:hover{
+            background:#0b4c46;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Left Phone -->
+        <div class="phone">
+            <div class="phone-notch"></div>
+
+            <div class="menu-header">
+                <h2>Menu</h2>
+                <div class="menu-icon">☰</div>
+            </div>
+
+            <div class="categories">
+                <div class="category active">All</div>
+                <div class="category">Breakfast</div>
+                <div class="category">Lunch</div>
+                <div class="category">Treats</div>
+                <div class="category">Dessert</div>
+                <div class="category">Drinks</div>
+            </div>
+
+            <div class="grid-items">
+                <div class="grid-card">
+                    <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8" alt="Pear & Orange">
+                    <div class="grid-info">
+                        <h4>Pear & Orange</h4>
+                        <div class="grid-price">25.00$</div>
+                    </div>
+                </div>
+
+                <div class="grid-card">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Meat & Mushrooms">
+                    <div class="grid-info">
+                        <h4>Meat & Mushrooms</h4>
+                        <div class="grid-price">37.00$</div>
+                    </div>
+                </div>
+
+                <div class="grid-card">
+                    <img src="https://images.unsplash.com/photo-1541519227354-08fa5d50c44d" alt="Egg & Bread">
+                    <div class="grid-info">
+                        <h4>Egg & Bread</h4>
+                        <div class="grid-price">25.00$</div>
+                    </div>
+                </div>
+
+                <div class="grid-card">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b" alt="Sweet Pancake">
+                    <div class="grid-info">
+                        <h4>Sweet Pancake</h4>
+                        <div class="grid-price">13.00$</div>
+                    </div>
+                </div>
+
+                <div class="grid-card">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Waffle">
+                    <div class="grid-info">
+                        <h4>Waffle Stack</h4>
+                        <div class="grid-price">18.00$</div>
+                    </div>
+                </div>
+
+                <div class="grid-card">
+                    <img src="https://images.unsplash.com/photo-1562201676-8c4a2df6a837" alt="Omelette">
+                    <div class="grid-info">
+                        <h4>Cheese Omelette</h4>
+                        <div class="grid-price">22.00$</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="phone-bottom">
+                <div>🏠 Menu</div>
+                <div>❤ Heart</div>
+                <div>📋 Orders</div>
+                <div>👤 Profile</div>
+            </div>
+        </div>
+
+        <!-- Right Detail Panel -->
+        <div class="detail-panel">
+            <div class="detail-image">
+                <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8" alt="Pear & Orange">
+            </div>
+
+            <div class="detail-header">
+                <div>
+                    <h3 class="detail-title">Pear & Orange</h3>
+                    <div class="detail-rating">⏱ 25 min  ⭐ 4.8</div>
+                </div>
+            </div>
+
+            <div class="detail-price">25.00$</div>
+
+            <div class="detail-desc">
+                Soft delicious pancakes are served for breakfast with maple syrup and fresh pear and orange slices. Pancakes were in very popular breakfast only in the USA and Canada, but now pancakes are for breakfast all over the world.
+            </div>
+
+            <div class="recently-viewed">
+                <div class="recently-title">Recently Viewed</div>
+                <div class="viewed-items">
+                    <div class="viewed-item">
+                        <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8" alt="Item 1">
+                    </div>
+                    <div class="viewed-item">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Item 2">
+                    </div>
+                    <div class="viewed-item">
+                        <img src="https://images.unsplash.com/photo-1542635503-c6f3f1b912d6" alt="Item 3">
+                    </div>
+                </div>
+            </div>
+
+            <button class="add-btn">Add to cart</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
